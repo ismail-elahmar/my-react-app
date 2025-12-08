@@ -1,0 +1,87 @@
+.partner-section {
+  text-align: center;
+  padding: 50px 30px;
+  background: #fff;
+  overflow: hidden;
+  margin-bottom: 50px;
+}
+
+.partner-title {
+  color: #01112A;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+/* SLIDER CONTAINER */
+.partner-slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+
+}
+
+/* TRACK (ANIMATION CONTAINER) */
+.partner-track {
+  display: flex;
+  width: calc(250px * 12); /* depends on number of logos * repetition */
+  animation: scroll 35s linear infinite;
+}
+
+/* EACH LOGO */
+.partner-logo {
+  flex: 0 0 auto;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.partner-logo img {
+  width: 50%;
+  max-width: 100px;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(80%);
+  transition: filter 0.3s, transform 0.3s;
+}
+
+.partner-logo img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+/* ANIMATION */
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .partner-logo {
+    width: 180px;
+  }
+
+  .partner-logo img {
+    max-width: 120px;
+  }
+}
+
+.testo{
+  animation: autoshowAnimation;
+  animation-timeline: view();
+}
+@keyframes autoshowAnimation{
+  from {
+    opacity: 0;
+    transform: translateY(0.1em) scale(1);
+  }to{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

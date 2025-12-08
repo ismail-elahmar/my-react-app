@@ -1,0 +1,157 @@
+.container-home {
+  width: 100%;
+  min-height: 100vh;
+  background: 
+    linear-gradient(
+      10deg, 
+      rgba(1, 17, 42, 0.7), 
+      rgba(1, 17, 42, 0.7)
+    ),
+    url('../../source/slide1.JPG');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Bloc texte + bouton (centré au milieu de l'écran) */
+.content-Home {
+  flex: 1;  
+  color: #fff;                      /* occupe tout l'espace restant */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;        /* centre verticalement */
+  align-items: center;            /* centre horizontalement */
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;                 /* centre horizontalement si max-width */
+}
+.content-Home h1 {
+  font-size: 40px;
+  font-weight: 600;
+  color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 4px solid #d8d8d8;
+  width: 0;
+  animation: typing 4s steps(52, end) forwards, blink 0.7s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 36ch; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+
+.content-home p{
+    max-width: 700px;
+    margin:10px auto 20px;
+    line-height: 1.4;
+    cursor: pointer;
+}
+
+.btnjoin {
+  position: relative; /* important pour le ::after */
+  display: inline-block;
+  overflow: hidden; /* cache le débordement du ::after */
+  width: 200px;
+  height: 50px;
+  background: none;
+  margin: 20px;
+  border: #fff solid 0.1px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.btnjoin::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0%;
+  height: 100%;
+  background: #fff;
+  transition: all 0.4s ease-in-out;
+  z-index: 1; /* derrière le texte */
+}
+
+.btnjoin:hover::after {
+  right: auto;
+  left: 0;
+  width: 100%;
+}
+
+.btnjoin span {
+  position: relative;
+  z-index: 2; /* au-dessus du ::after */
+  text-align: center;
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 50px; /* centre le texte verticalement */
+  color: #fff;
+  font-size: 1.125em;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  transition: all 0.3s ease-in-out;
+}
+
+.btnjoin:hover span {
+  color: #01112A;
+  animation: scaleUp 0.3s ease-in-out;
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+@media (max-width: 768px) {
+.media-content{
+  display: none;
+}
+hr{
+  display:none;
+}
+.content-Home h1{
+    font-size:20px ;
+    font-weight: 600;
+    transition: 1s;
+}
+.btnjoin{
+  position: relative; /* important pour le ::after */
+  display: inline-block;
+  overflow: hidden; /* cache le débordement du ::after */
+  width: 150px;
+  height: 40px;
+  background: none;
+  margin: 20px;
+  border: #fff solid 0.1px;
+  cursor: pointer;
+  color: #fff;
+}
+.btnjoin span {
+  position: relative;
+  z-index: 2; /* au-dessus du ::after */
+  text-align: center;
+  display: block;
+  width: 100%;
+  height: 100%;
+   font-family: "Outfit", sans-serif;
+  line-height: 40px; /* centre le texte verticalement */
+  color: #fff;
+  font-size: 1.125em;
+  font-weight: 500;
+  /* letter-spacing: 0.3em; */
+  transition: all 0.3s ease-in-out;
+}
+}

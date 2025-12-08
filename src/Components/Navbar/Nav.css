@@ -1,0 +1,272 @@
+nav { 
+  width:100%; 
+  color:#fff; 
+  padding:4px 0; 
+  position: fixed; 
+  top:0; 
+  left:0; 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  z-index:10; 
+  transition: background 0.5s ease, box-shadow 0.5s ease, transform 0.5s ease;
+} 
+
+.logo { 
+  width:80px; 
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+/* logo hover animation */
+.logo:hover {
+  transform: scale(1.08) rotate(2deg);
+}
+
+nav ul li { 
+  display:inline-block; 
+  list-style: none; 
+  margin: 5px 20px; 
+  font-size: 16px; 
+  opacity: 0;
+  animation: fadeSlideIn 0.8s forwards;
+}
+
+/* animate links one by one */
+nav ul li:nth-child(1) { animation-delay: 0.1s; }
+nav ul li:nth-child(2) { animation-delay: 0.2s; }
+nav ul li:nth-child(3) { animation-delay: 0.3s; }
+nav ul li:nth-child(4) { animation-delay: 0.4s; }
+nav ul li:nth-child(5) { animation-delay: 0.5s; }
+nav ul li:nth-child(6) { animation-delay: 0.6s; }
+nav ul li:nth-child(7) { animation-delay: 0.7s; }
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dark-nav {
+  background: #01112A;
+  margin-top: 0;
+  transition: 0.5s;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.3);
+}
+.move {
+  margin-top: 0;
+  transition: 1s;
+}
+
+.nav-item {
+  cursor: pointer;
+  color: #fff;      
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-item:hover {
+  transform: translateY(-3px);
+}
+
+/* effet hover avec soulignement animé */
+.nav-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 0%;
+  height: 3px;
+  background-color: #08D7DE;
+  transition: width 0.5s ease;
+  border-radius: 2px;
+}
+
+.nav-item:hover::after,
+.nav-item.active::after {
+  width: 100%;
+}
+
+/* état actif */
+.nav-item.active {
+  font-weight: 600;
+}
+
+/* ====== SCROLL EFFECT ====== */
+.dark-nav {
+  background: #01112A;
+  margin-top: 0;
+}
+
+.move {
+  margin-top: 0;
+}
+
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+  .logo { 
+    width: 60px;
+  }
+}
+
+.nav-item.active {
+  color: #08D7DE;
+  font-weight: 600;
+}
+
+.nav-item.active::after {
+  width: 50%;
+}
+
+
+/* Hamburger for mobile */
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.hamburger input {
+  display: none;
+}
+
+.hamburger svg {
+  height: 2em;
+  width: 2em;
+  transition: transform 0.6s ease;
+}
+
+.line {
+  fill: none;
+  stroke: white;
+  stroke-width: 3;
+  stroke-linecap: round;
+  transition: 0.4s;
+}
+
+.line-top-bottom {
+  stroke-dasharray: 12 63;
+}
+
+.hamburger input:checked + svg {
+  transform: rotate(-45deg);
+}
+
+.hamburger input:checked + svg .line-top-bottom {
+  stroke-dasharray: 20 300;
+  stroke-dashoffset: -32.42;
+}
+
+/* ======= Mobile Menu Animation ======= */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  nav ul.content-link {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 60px;
+    right: -100%;
+    width: 220px;
+    height: calc(100% - 60px);
+    background: #01112A;
+    padding: 20px;
+    transition: right 0.5s ease;
+    z-index: 99;
+    animation: slideOut 0.4s forwards;
+  }
+
+  nav ul.content-link.open {
+    right: 0;
+    animation: slideIn 0.4s forwards;
+  }
+
+  nav ul.content-link li {
+    margin: 15px 0;
+    text-align: center;
+    animation: fadeInMenu 0.5s ease forwards;
+  }
+
+  @keyframes slideIn {
+    from {
+      right: -100%;
+    }
+    to {
+      right: 0;
+    }
+  }
+
+  @keyframes slideOut {
+    from {
+      right: 0;
+    }
+    to {
+      right: -100%;
+    }
+  }
+
+  @keyframes fadeInMenu {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+
+.neon-button {
+  position: relative;
+  padding: 8px 15px;
+  border: 2px solid #08D7DE;
+  border-radius: 30px;
+  background: transparent;
+  color: #08D7DE;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.neon-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #08D7DE;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: 0;
+}
+
+.neon-button:hover::before {
+  transform: scaleX(1);
+}
+
+.neon-button:hover {
+  color: #01112A;
+}
+
+.neon-button span {
+  position: relative;
+  z-index: 1;
+}

@@ -1,0 +1,162 @@
+/* Conteneur principal */
+.container-About {
+  margin-top: 50px;
+}
+
+/* .testo {
+  text-align: center;      
+  margin: 80px auto 50px;   
+  max-width: 800px;         
+}
+
+.testo h2 {
+  font-size: 2.5em;
+  color: #01112A;
+  margin-bottom: 10px;
+}
+
+.testo h2 span {
+  color: #00c8ff;
+}
+
+.testo hr {
+  width: 100px;
+  height: 4px;
+  background-color: #00c8ff;
+  border: none;
+  border-radius: 2px;
+  margin: 15px auto;
+}
+
+.testo p {
+  font-size: 1.1em;
+  color: #333;
+  line-height: 1.6;
+  margin-top: 10px;
+} */
+
+/* Section About en row par défaut */
+.About {
+  margin: 100px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Image */
+.About-left {
+  flex-basis: 45%;
+}
+
+.About-left img {
+  width: 100%;
+  border-radius: 15px;
+ 
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Texte */
+.textes {
+  flex-basis: 50%;
+}
+
+.textes h2 {
+  font-size: 2em;
+  margin-bottom: 15px;
+  color: #01112A;
+}
+
+.textes h2 span {
+  color: #08D7DE;
+}
+
+.textes p {
+  font-size: 1em;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Responsive : colonne seulement pour mobile */
+@media (max-width: 768px) {
+  .About {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .About-left,
+  .textes {
+    flex-basis: 100%;
+  }
+
+  .textes h2 {
+    text-align: center;
+  }
+
+  .textes p {
+    text-align: justify;
+  }
+}
+
+/* === ANIMATIONS === */
+
+/* Initially hidden */
+.About-left,
+.textes {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+/* When visible */
+.About-left.show,
+.textes.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Image zoom-in animation */
+.About-left img {
+  transform: scale(0.9);
+  opacity: 0;
+  transition: all 1s ease-out;
+}
+
+.About-left.show img {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Text reveal with stagger */
+.textes h2,
+.textes p {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.textes.show h2 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.textes.show p {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.4s;
+}
+
+/* Optional: smooth fade for section title (.testo) */
+.testo {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.container-About.show .testo {
+  opacity: 1;
+  transform: translateY(0);
+}
